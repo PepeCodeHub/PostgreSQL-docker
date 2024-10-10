@@ -43,3 +43,14 @@ publish:
 	docker tag $(IMAGE_NAME):$(TAG) $(DOCKER_USERNAME)/$(IMAGE_NAME):$(TAG)
 	@echo "Pushing the image to Docker Hub..."
 	docker push $(DOCKER_USERNAME)/$(IMAGE_NAME):$(TAG)
+	
+# Display help
+help:
+	@echo "Available commands:"
+	@echo "  build       Build the Docker image and run MongoDB containers"
+	@echo "  up          Start MongoDB containers without rebuilding"
+	@echo "  down        Stop and remove MongoDB containers"
+	@echo "  logs        View logs from running MongoDB containers"
+	@echo "  ps          Show running MongoDB containers"
+	@echo "  clean       Clean up unused Docker resources"
+	@echo "  publish     Tag and push the Docker image to Docker Hub"
