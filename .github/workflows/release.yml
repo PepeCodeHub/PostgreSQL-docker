@@ -1,0 +1,28 @@
+name: Release
+
+on:
+    push:
+        tags:
+            - 'v*.*.*'
+    workflow_dispatch:
+
+jobs:
+    create_release:
+        uses: PepeCodeHub/Workflows/reusable-create-release.yml@v1.0.0
+        with:
+          tag_name: ${{ github.ref_name }}
+          release_name: 'Release ${{ github.ref_name }}'
+          release_body: |
+            ## What's New
+            - Custom release notes for version `${{ github.ref_name }}`
+        secrets:
+          ORG_PAT: ${{ secrets.ORG_PAT }}
+
+    publish_release:
+        uses: PepeCodeHub/Workflows/reusable-publish-docker-container.yml@v1.0.0
+        with:
+            docker_image_name: 'postgresql-docker-db'
+        secrets:
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+          GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
