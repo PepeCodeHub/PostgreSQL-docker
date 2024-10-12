@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create Release
-        uses: PepeCodeHub/Workflows/create-release@v1.0.1
+        uses: PepeCodeHub/Workflows/create-release@v1.0.2
         with:
           tag_name: ${{ github.ref }}
           release_name: 'Release ${{ github.ref }}'
@@ -23,7 +23,7 @@ jobs:
     needs: CreateRelease
     steps:  
       - name: Publish Docker Container
-        uses: PepeCodeHub/Workflows/publish-docker-container@v1.0.1
+        uses: PepeCodeHub/Workflows/publish-docker-container@v1.0.2
         with:
           docker_image_name: 'postgresql-docker-db'
         env:
