@@ -99,4 +99,9 @@ The `.env` file should contain the following variables:
 
 The Docker image is available on Docker Hub: [f3an/postgresql-docker-db](https://hub.docker.com/repository/docker/f3an/postgresql-docker-db/general)
 
+## Github Registry Link 🐈‍⬛
+
+The Docker image is available on GitHub: [f3an/postgresql-docker-db](https://github.com/PepeCodeHub/PostgreSQL-docker/pkgs/container/postgresql-docker-db)
+
+
 PostgreSQL DB in Docker 🐘
