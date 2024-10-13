@@ -21,7 +21,10 @@ jobs:
   PublishRelease:
     runs-on: ubuntu-latest
     needs: CreateRelease
-    steps:  
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Publish Docker Container
         uses: PepeCodeHub/Workflows/publish-docker-container@v1.0.0
         with:
